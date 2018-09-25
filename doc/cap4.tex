@@ -15,29 +15,43 @@ $ P(x) \vee P(f(x)) $
 \begin{itemize}
  \item[(1)] Find H0 and H1. \newline
 $ H_0 = \{ a, b \} $ \newline
-$ H_1 = \{ a, b, f(a), f(b), g(a, a), g(a, b), g(b, a), g(b, b) \} $ \newline
+$ H_1 = \{ a, b, f(a), f(b), g(a, a), g(a, b), g(b, a), g(b, b) \} $
 %$ H_2 = \{ a, f(a), g(a, a), f(f(a)), f(g(a, a)), g(a, f(a)), g(f(a), a), g(f(a), f(a)) \} $ \newline
- \item[(2)] Find all the ground instances of S over H0.
+ \item[(2)] Find all the ground instances of S over H0. \newline
 $ S^1 = \{P(f(a),a,g(f(a),b))\} $ e $ S^2 = \{P(f(b),a,g(f(b),b))\} $.
  \item[(3)] Find all the ground instances of S over H1. \newline
+Talvez esteja errado...\newline
 $ S^1 = \{P(f(a),a,g(f(a),b))\} $, $ S^2 = \{P(f(b),a,g(f(b),b))\} $, $ S^3 = \{P(f(f(a)),a,g(f(f(a)),b))\} $, $ S^4 = \{P(f(f(b)),a,g(f(f(b)),b))\} $, $ S^5 = \{P(f(g(a,a)),a,g(f(g(a,a)),b))\} $, $ S^6 = \{P(f(g(a,b)),a,g(f(g(a,b)),b))\} $, $ S^7 = \{P(f(g(b,a)),a,g(f(g(b,a)),b))\} $, $ S^8 = \{P(f(g(b,b)),a,g(f(g(b,b)),b))\} $
 \end{itemize}
 
 8. Consider the following clause C and interpreation I:
 
-C:
+$ C: P(x) \vee Q(x,f(x)) $
 
-I:
+$I:\\
+\{ \sim P(a), \sim P(f(a)), \sim P(f(f(a))), ...,\\
+\sim Q(a,a), Q(a, f(a)), \sim Q(a,f(f(a))), ...,\\
+\sim Q(f(a,a),Q(f(a),f(a)), \sim Q(f(a), f(f(a))), ... \}.$
 
 Does I satisfy C?
 
-Não.
+Não. S' = \{P(a), Q(a, f(a))\}.
 
 \underline{9.} Consider the following set S of clauses:
 
+\[
+S =	\begin{cases}
+		P(x) \\
+		Q(f(y)).
+	\end{cases}
+\]
 
 Let an interpretation I be defined as below:
 
+$I =\\
+\{P(a), P(f(a)), P(f(f(a))), ...,\\
+Q(a), \sim Q(f(a)), Q(f(f(a))), ...\}.
+$
 
 Does I satisfy S?
 
@@ -58,16 +72,68 @@ Não existe interpretação que satisfaz S. Os dois primeiros termos da interpre
 
 11. Let $ S = \{P, \sim P \vee Q, \sim Q\} $. Give a closed semantic tree of S.
 
+\begin{tikzpicture}[every tree node/.style={draw,circle},
+   level distance=1.25cm,sibling distance=.5cm, 
+   edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
+\Tree [.\node { };
+        \edge node[left] {P};
+        [.{ } 
+          \edge node[left] {Q};
+          [.{$ \square $} ]
+          \edge node[right] {$\sim Q$};
+          [.{$ \square $} ]
+        ]
+        \edge node[right] {$\sim P$};
+        [.{$ \square $} ]
+      ]
+\end{tikzpicture}
+
 12. Consider $ S = \{P(x), \sim P(x) \vee Q(x,a), \sim Q(y,a)\} $.
 \begin{itemize}
- \item[(a)] Give the atom set of S.
- \item[(b)] Give a complete semantic tree of S.
- \item[(c)] Give a closed semantic tree of S.
+ \item[(a)] Give the atom set of S. \newline
+S = \{P(a), Q(a,a)\}
+ \item[(b)] Give a complete semantic tree of S. \newline
+\begin{tikzpicture}[every tree node/.style={draw,circle},
+   level distance=1.25cm,sibling distance=.5cm, 
+   edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
+\Tree [.\node { };
+        \edge node[left] {P(a)};
+        [.{ } 
+          \edge node[left] {Q(a,a)};
+          [.{ } ]
+          \edge node[right] {$\sim Q(a,a)$};
+          [.{ } ]
+        ]
+        \edge node[right] {$\sim P(a)$};
+        [.{ } 
+          \edge node[left] {Q(a,a)};
+          [.{ } ]
+          \edge node[right] {$\sim Q(a,a)$};
+          [.{ } ]
+        ]
+      ]
+\end{tikzpicture}
+ \item[(c)] Give a closed semantic tree of S. \newline
+\begin{tikzpicture}[every tree node/.style={draw,circle},
+   level distance=1.25cm,sibling distance=.5cm, 
+   edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
+\Tree [.\node { };
+        \edge node[left] {P(a)};
+        [.{ }
+          \edge node[left] {Q(a,a)};
+          [.{$\square$} ]
+          \edge node[right] {$\sim Q(a,a)$};
+          [.{$\square$} ]
+        ]
+        \edge node[right] {$\sim P(a)$};
+        [.{$\square$} ]
+      ]
+\end{tikzpicture}
 \end{itemize}
 
 13. Consider $ S = \{P(x,a,g(x,b)), \sim P(f(y),z,g(f(a),b))\} $. Find an unsatisfiable set S' of ground instances of clauses in S.
 
-
+S' = \{\}
 
 \underline{14.} Let $ S = \{P(x),Q(x,f(x)) \vee \sim P(x), \sim Q(g(y),z)\} $. Find an unsatisfiable set S' of ground instances of clauses in S.
 
