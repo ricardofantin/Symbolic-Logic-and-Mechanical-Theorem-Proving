@@ -1,0 +1,156 @@
+\section{The Resolution Principles}
+
+1. Prove the following set of clauses is unsatisfiable by resolution:
+
+$ P \vee Q \vee R, \sim P \vee R, \sim Q, \sim R $.
+
+\begin{itemize}
+ \item[(1)] $ P \vee Q \vee R $
+ \item[(2)] $ \sim P \vee R $
+ \item[(3)] $ \sim Q $
+ \item[(4)] $ \sim R $
+ \item[(5)] $ P $ de (1), (3) e (4)
+ \item[(6)] $ R $ de (2) e (5)
+ \item[(7)] $ \square $ de (4) e (6)
+\end{itemize}
+
+2. For the set $ S = \{P\vee Q, \sim Q \vee R, \sim P \vee Q, \sim R\} $ derive an empty clause from S by resolution.
+
+\begin{itemize}
+ \item[(1)] $ P \vee Q $
+ \item[(2)] $ \sim Q \vee R $
+ \item[(3)] $ \sim P \vee Q $
+ \item[(4)] $ \sim R $
+ \item[(5)] $ \sim Q $ de (2) e (4)
+ \item[(6)] $ Q $ de (1) e (3)
+ \item[(7)] $ \square $ de (5) e (6)
+\end{itemize}
+
+3. Let $ \Theta = \{ a\diagup x, b\diagup y, g(x,y)\diagup z \} $ be a substituion and E = P(h(x),z). Find $E\Theta$.
+
+$E\Theta = P(h(a), g(a,b)) $
+
+\underline{6.}Determine whether each of the following sets is unifiable. If yes, obtain a most general unifies.
+\begin{itemize}
+ \item[(1)] W = \{Q(a), Q(b)\} \newline
+Não unificável.
+ \item[(2)] W = \{Q(a,x),Q(a,a)\} \newline
+$ S = \{ a \diagup x \} $ \newline
+W = Q(a, a)
+ \item[(3)] W = \{Q(a,x,f(x)),Q(a,y,y)\} \newline
+Não unificável.
+ \item[(4)] W = \{Q(x,y,z),Q(u,h(v,v),u)\} \newline
+$ S = \{u \diagup x, y \diagup h(v,v), z \diagup u \} $ \newline
+W = Q(z,y,z)
+ \item[(5)] $ W = \{P(x_1,g(x_1),x_2,h(x_1,x_2),x_3,k(x_1,x_2,x_3)), P(y_1,y_2,e(y_2),y_3,f(y_2,y_3),y_4)\} $. \newline
+$ S = \{ x_1 \diagup y_1, g(x_1) \diagup y_2, e(g(x_1)) \diagup x_2, h(x_1, e(g(x_1))) \diagup y_3, f(g(x_1), h(x_1,e(g(x_1)))) \diagup x_3,\newline k(x_1, e(g(x)), f(g(x)), h(x_1,e(g(x_1)))) \diagup y_4 \} $\newline
+$ W = P(x_1, g(x_1), e(g(x_1)), h(x_1, e(g(x))), h(x_1,e(g(x_1))) , k(x_1,e(g(x_1))))$
+\end{itemize}
+
+7. Determine whether the following clauses have factors. If yes, give the factors.
+\begin{itemize}
+ \item[(1)] $ P(x) \vee Q(y) \vee P(f(x)) $ \newline
+$ P(x) \vee Q(y) $
+ \item[(2)] $ P(x) \vee P(a) \vee Q(f(x)) \vee Q(f(a)) $ \newline
+$ P(x) \vee Q(f(x)) $
+ \item[(3)] $ P(x, y) \vee P(a, f(a)) $ \newline
+P(x, y)
+ \item[(4)] $ P(a) \vee P(b) \vee P(x) $ \newline
+P(x)
+ \item[(5)] $ P(x) \vee P(f(y)) \vee Q(x,y) $. \newline
+Não possui.
+\end{itemize}
+
+
+\underline{8.} Find all possible resolvents (if any) of the following pairs of clauses:
+\begin{itemize}
+ \item[(1)] $ C = \sim P(x) \vee Q(x,b) $, $ D = P(a) \vee Q(a,b) $ \newline
+Q(a,b)
+ \item[(2)] $ C = \sim P(x) \vee Q(x,x) $, $ D = \sim Q (a,f(a)) $ \newline
+
+ \item[(3)] $ C = \sim P(x,y,u) \vee \sim P(y,z,v) \vee \sim P(x,v,w) \vee P(u,z,w) $, $ D = P(g(x,y),x,y) $ \newline
+
+ \item[(4)] $ C = \sim P(v,z,v) \vee P(w,z,w) $, $ D = P(w,h(x,x),w) $. \newline
+\end{itemize}
+
+
+9. Reconsider Example 2.13 in Section 2.6. This time show that H2CO3 can be made by resolution.
+
+Primeiro nega-se a consequência $H2CO3$ torna-se $ \sim H2CO3 $. Remove-se as consequências $ (MgO \wedge H_2) \implies (Mg \wedge H_2O) \equiv \sim MgO \vee \sim H_2 \vee (Mg \wedge H_2O)$, $ C \wedge O_2 \implies CO_2 \equiv \sim C \vee \sim O_2 \vee CO_2$ e $ CO_2 \wedge H_2O \implies H_2CO_3 \equiv \sim CO_2 \vee \sim H_2O \vee H_2CO_3$.
+
+\begin{itemize}
+ \item[(1)] $ \sim MgO \vee \sim H_2 \vee (Mg \wedge H_2O) $
+ \item[(2)] $ \sim C \vee \sim O_2 \vee CO_2 $
+ \item[(3)] $ \sim CO_2 \vee \sim H_2O \vee H_2CO_3 $
+ \item[(4)] MgO
+ \item[(5)] $ H_2 $
+ \item[(6)] $ O_2 $
+ \item[(7)] C
+ \item[(8)] $ \sim H_2CO_3 $
+ \item[(9)] $ \sim CO_2 \vee \sim H_2O $ de (3) e (8)
+ \item[(10)] $ \sim C \vee \sim O_2 \vee \sim H_2O $ de (2) e (9)
+ \item[(11)] $ \sim H_2O $ de (6), (7) e (10)
+ \item[(12)] $ Mg \wedge H_2O $ de (1), (4) e (5)
+ \item[(13)] $ H_2O $ de (12)
+ \item[(14)] $ \square $ de (11) e (13)
+\end{itemize}
+
+\underline{10.} In Exercise 14 of Chapter 2, you were asked to show that Q is a logical consequence of P and $ P \implies Q $. Can you prove this again by using the resolution principles?
+
+Primeiro deve-se remover o símbolo de $\implies$, $ P \implies Q \equiv \sim P \vee Q $.
+
+Para gerar a última clausula é necessário negar a consequência $ Q $ torna-se $ \sim Q $.
+
+\begin{itemize}
+ \item[(1)] P
+ \item[(2)] $ \sim P \vee Q $
+ \item[(3)] $ \sim Q $
+ \item[(4)] Q de (1) e (2)
+ \item[(5)] $ \square $ de (3) e (4)
+\end{itemize}
+
+\underline{12.} Consider Example 4.16. Prove that the set of clauses in this example is unsatisfiable by the resolution principles.
+
+\begin{itemize}
+ \item[(1)] $ \sim P(x) \vee Q(f(x),x) $
+ \item[(2)] $ P(g(b)) $
+ \item[(3)] $ \sim Q(y,z) $ \newline
+substituindo $ S = \{ g(b) \diagup x, f(g(b)) \diagup y, g(b) \diagup z \} $
+ \item[(1)] $ \sim P(g(b)) \vee Q(f(g(b)),g(b)) $
+ \item[(2)] $ P(g(b)) $
+ \item[(3)] $ \sim Q(f(g(b)),g(b)) $
+ \item[(4)] $ Q(f(g(b)),g(b)) $ de (1) e (2)
+ \item[(5)] $ \square $ de (3) e (4)
+\end{itemize}
+
+\underline{13.} Use the resolution principle to prove that the set of clauses in Exercise 14 of Chapter 4 is unsatisfiable.
+
+\begin{itemize}
+ \item[(1)] $ P(X) $
+ \item[(2)] $ Q(x,f(x)) \vee \sim P(x) $
+ \item[(3)] $ \sim Q(g(y),z) $
+ \item[(4)] $ Q(x, f(x)) $ de (1) e (2)
+ \item[(5)] $ Q(g(y), f(g(y))) $ aplicando $S=\{g(y)\diagup x , f(g(y)) \diagup z \} $ em (4)
+ \item[(6)] $ \square $ de (3) e (5)
+\end{itemize}
+
+\underline{14.} Prove that $ (\sim P \implies \sim Q) $ is logical consequence of $ (P \implies Q) $ by resolution.
+
+Primeiro é necessário remover os $ \implies $:
+
+$ P \implies Q \equiv \sim P \vee Q $
+
+$ \sim P \implies \sim Q \equiv P \vee \sim Q$
+
+para provar que são consequência devemos negar a consequência.
+
+$\sim(P \vee \sim Q) \equiv \sim P \wedge Q$
+
+Listando todas três as equações:
+\begin{itemize}
+ \item[(1)] $ P \vee \sim Q $
+ \item[(2)] $\sim P$
+ \item[(3)] $Q$
+ \item[(4)] $ \sim Q $ de (1) e (2)
+ \item[(5)] $ \square $ de (3) e (4)
+\end{itemize}

@@ -1,0 +1,124 @@
+\section{The First-Order Logic}
+1. Let P(x) and Q(x) represent ``x is a rational number 11 and ``x is a real number, '' respectively. Symbolize the following sentences:
+\begin{itemize}
+ \item[1.1] Every rational number is a real number. \newline
+$ (\forall x) P(x) \implies Q(x) $
+ \item[1.2] Some real numbers are rational numbers. \newline
+$ (\exists x) Q(x) \implies P(x) $ \newline
+ou \newline
+$ (\exists x) Q(x) \wedge P(x) $
+ \item[1.3] Not every real number is a rational number. \newline
+$ (\exists x) Q(x) \wedge P(x) $
+\end{itemize}
+
+5. For the following interpretation (D = \{a,b\}), (Tabela~\ref{tab:pergunta3.5})
+\begin{table}
+ \centering
+ \begin{tabular}{cccc}
+  \hline
+  P(a,a) & P(a,b) & P(b,a) & P(b,b) \\ \hline
+  T & F & F & T \\ \hline
+ \end{tabular}
+ \label{tab:pergunta3.5}
+ \caption{Interpretação proposta no enunciado da questão 3.5.}
+\end{table}
+, determine the truth value of the following formulas:
+\begin{itemize}
+ \item[(a)] $ (\forall x) (\exists y) P(x,y) $ \newline
+$ \blacksquare $
+ \item[(b)] $ (\forall x) (\forall y) P(x,y) $ \newline
+$ \square $
+ \item[(c)] $ (\exists x) (\forall y) P(x,y) $ \newline
+$ \square $
+ \item[(d)] $ (\exists y) \sim P(a,y) $ \newline
+$ \blacksquare $
+ \item[(e)] $ (\forall x) (\forall y) (P(x,y) \implies P(y,x)) $ \newline
+$ \blacksquare $
+ \item[(f)] $ (\forall x) P(x,x) $ \newline
+$ \blacksquare $
+\end{itemize}
+
+\underline{6.} Consider the following formula:
+
+$ A: (\exists x) P(x) \implies (\forall x) P(x). $
+
+a. Prove that this formula is always true if the domain D contains only one element.
+
+Com apenas um elemento no domínio, por exemplo a, só existe um valor verdade para P(a). Sendo F ou T, $ F \implies F $ ou $ T \implies T $ tem como valor verdade T.
+
+b. Let D = \{a,b\}. Find an interpretation over D in which A is evaluated to F.
+
+Sendo P(a) = T e P(b) = F, a fórmula $ P(a) \implies P(b) $ resulta em F.
+
+7. Consider the following interpretation:
+
+Domain: D = \{1,2\}.
+
+Assignment of constants a and b (Tabela~\ref{tab:pergunta7a}):
+
+\begin{table}
+ \centering
+ \begin{tabular}{cc}
+  \hline
+  a & b \\ \hline
+  1 & 2 \\ \hline
+ \end{tabular}
+ \caption{Valores das constantes a e b pro exercício 7.}
+ \label{tab:pergunta7a}
+\end{table}
+
+Assignment for function f (Tabela~\ref{tab:pergunta7b}):
+
+\begin{table}
+ \centering
+ \begin{tabular}{cc}
+  \hline
+  f(1) & f(2) \\ \hline
+  2 & 1 \\ \hline
+ \end{tabular}
+ \caption{Valores da função \texttt{f()} pro exercício 7.}
+ \label{tab:pergunta7b}
+\end{table}
+
+Assignment for predicate P (Tabela~\ref{tab:pergunta7c}):
+
+\begin{table}
+ \centering
+ \begin{tabular}{cccc}
+  \hline
+  P(1,1) & P(1,2) & P(2,1) & P(2,2) \\ \hline
+  T & T & F & F \\ \hline
+ \end{tabular}
+ \caption{Valores do predicado \texttt{P()} pro exercício 7.}
+ \label{tab:pergunta7c}
+\end{table}
+
+Evaluate the truth value of the following formulas in the above interpretation:
+\begin{itemize}
+ \item[(1)] $ P(a, f(a)) \wedge P(b, f(b)) $ \newline
+$ \square $
+ \item[(2)] $ (\forall x) (\exists y) P(y,x) $ \newline
+$ \blacksquare $
+ \item[(3)] $ (\forall x) (\forall y) (P(x,y) \implies P(f(x),f(y))) $. \newline
+$ \blacksquare $
+\end{itemize}
+
+8. Let F1 and F2 be as follows:
+
+$ F_1: (\forall x) (P(x) \implies Q(x)) $
+
+$ F_2: \sim Q(a). $
+
+Prove that $\sim P(a)$ is a logical consequence of F1 and F2.
+
+De $F_1$ com $ S = \{ a \diagup x\} $ obtêm-se $ P(a) \implies Q(a) $. Como deseja-se provar $\sim P(a)$, adiciona-se $ P(a) $ e a cláusula vazia é buscada. De P(a) e $ P(a) \implies Q(a) $, com o modus pones obtêm-se Q(a). Unindo as clausulas Q(a) e $ F_2: \sim Q(a) $ chega-se a cláusula vazia.
+
+\underline{9.} Transform the following formulas into prenex normal forms:
+\begin{itemize}
+ \item[(1)] $ (\forall x) (P(x) \implies (\exists y) Q(x,y)) $ \newline
+$(\forall x) (\exists y) P(x) \implies Q(x, y) $
+ \item[(2)] $ (\exists x) (\sim((\exists y)P(x,y)) \implies ((\exists z) Q(z) \implies R(x))) $ \newline
+$(\exists x)(\exists y)(\forall z) \sim P(x,y) \vee \sim Q(z) \vee R(x) $
+ \item[(3)] $ (\forall x)(\forall y)((\exists z) P(x,y,x) \wedge((\exists u) Q(x,u) \implies (\exists v) Q(y,v))) $. \newline
+$ (\forall x)(\forall y)(\exists z)(\forall u)(\exists v)(P(x,y,x) \wedge (\sim (Q(x,u) \vee Q(y,v)))) $
+\end{itemize}

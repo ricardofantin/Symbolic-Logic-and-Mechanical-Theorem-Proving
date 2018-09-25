@@ -1,0 +1,129 @@
+\section{The Propositional Logic}
+3. Complete the following truth table (Table 2.11 -- Tabela~\ref{tab:pergunta2.3}) of the formula
+
+\begin{equation}
+ (\sim P \vee Q) \wedge (\sim(P \vee \sim Q))
+\end{equation}
+
+\begin{table}
+ \begin{tabular}{cccccccc}
+  \hline
+  P & Q & $\sim P$ & $\sim Q$ & $\sim P \vee Q$ & $P \wedge \vee Q$ & $\sim(P \wedge \sim Q)$ & $(\sim P \vee Q) \wedge (\sim(P \vee \sim Q))$ \\
+  \hline
+  T & T & & & & & & \\
+  T & F & & & & & & \\
+  F & T & & & & & & \\
+  F & F & & & & & & \\
+  \hline
+ \end{tabular}
+ \caption{Tabela da pergunta 3 do capítulo 2.}
+ \label{tab:pergunta2.3}
+\end{table}
+
+Resposta na Tabela~\ref{tab:resposta2.3}.
+
+\begin{table}
+ \begin{tabular}{cccccccc}
+  \hline
+  P & Q & $\sim P$ & $\sim Q$ & $\sim P \vee Q$ & $P \wedge \sim Q$ & $\sim(P \wedge \sim Q)$ & $(\sim P \vee Q) \wedge (\sim(P \wedge \sim Q))$ \\
+  \hline
+  T & T & F & F & T & F & T & T \\
+  T & F & F & T & F & T & F & F \\
+  F & T & T & F & T & F & T & T \\
+  F & F & T & T & T & F & T & T \\
+  \hline
+ \end{tabular}
+ \caption{Tabela da resposta 3 do capítulo 2.}
+ \label{tab:resposta2.3}
+\end{table}
+
+4. For each of the following formulas, determine whether it is valid, invalid, inconsistent, consistent, or some combination of these.
+\begin{enumerate}
+ \item[(a)] $ \sim(\sim P) \implies P $ \newline
+válido, consistente
+ \item[(b)] $ P \implies (P \wedge Q) $ \newline
+inválido, consistente
+ \item[(c)] $ \sim(P \vee Q) \vee \sim Q $ \newline
+inválido, consistente
+ \item[(d)] $ (P \vee Q) \implies P $ \newline
+inválido, consistente
+ \item[(e)] $ (P \implies Q) \implies ( \sim Q \implies \sim P) $ \newline
+inválido, consistente
+ \item[(f)] $ (P \implies Q) \implies ( Q \implies P) $ \newline
+inválido, consistente
+ \item[(g)] $ P \vee (P \implies Q) $ \newline
+válido, consistente
+ \item[(h)] $ (P \wedge (Q \implies P)) \implies P $ \newline
+válido, consistente
+ \item[(i)] $ P \vee (Q \implies \sim P) $ \newline
+válido, consistente
+ \item[(j)] $ (P \vee \sim Q) \wedge (\sim P \vee Q) $ \newline
+inválido, consistente
+ \item[(k)] $ (\sim P \wedge (\sim (P \implies Q)) $ \newline
+inválido, consistente
+ \item[(l)] $ P \implies \sim P $ \newline
+inválido, consistente
+ \item[(m)] $ \sim P \implies P $ \newline
+inválido, consistente
+\end{enumerate}
+
+6. Transform the following into disjunctive normal forms.
+
+\begin{enumerate}
+ \item[(a)] $ (\sim P \wedge Q) \implies R $ \newline
+$P \vee \sim Q \vee R$
+ \item[(b)] $ P \implies \left( ( Q \wedge R) \implies S \right)$ \newline
+$ \sim P \vee \sim Q \vee \sim R \vee S $
+ \item[(c)] $ \sim (P \vee \sim Q) \wedge (S \implies T) $ \newline
+$ \sim P \wedge \sim Q \wedge (\sim S \vee T) $
+ \item[(d)] $ (P \implies Q) \implies R $ \newline
+$ P \wedge \sim Q \vee R $
+ \item[(e)] $ \sim (P \wedge Q) \wedge (P \vee Q) $. \newline
+$ (\sim P \vee \sim Q) \wedge (P \vee Q) $
+\end{enumerate}
+
+7. Transform the following into conjunctive normal forms
+\begin{itemize}
+ \item[(a)] $ P \vee (\sim P \wedge Q \wedge R) $ \newline
+$(P \vee Q) \wedge (P \vee R) $
+ \item[(b)] $ \sim (P \implies Q) \vee (P \vee Q) $ \newline
+$ P \vee Q $
+ \item[(c)] $ \sim (P \implies Q) $ \newline
+$ P \wedge \sim Q $
+ \item[(d)] $ (P \implies Q) \implies R $ \newline
+$ (P \vee R) \wedge (\sim Q \vee R) $
+ \item[(e)] $ (\sim P \wedge Q) \vee (P \wedge \sim Q) $ \newline
+$ (P \vee Q) \wedge (\sim P \vee \sim Q) $
+\end{itemize}
+
+8. Is it possible to have a formula that is in conjunctive normal form as well as disjunctive normal form? If yes, give an example.
+
+Sim, possíveis fórmulas: P, $ P \vee Q $ ou $ P \wedge Q $.
+
+\underline{9.} Verify each of the following pairs of equivalent formulas by transforming formulas on both sides of the sigh = into the same normal form.
+\begin{itemize}
+ \item[(a)] $ P \wedge P = P $, and $ P \vee P = P $ \newline
+P = P e P = P
+ \item[(b)] $ (P \implies Q) \wedge (P \implies R) = (P \implies (Q \wedge R)) $ \newline
+$ (\sim P \vee Q) \wedge (\sim P \vee R) $
+ \item[(c)] $ (P \implies Q) \implies (P \wedge Q) = (\sim P \implies Q) \wedge (Q \implies P) $ \newline
+As fórmulas não representam o mesmo valor verdade. A primeira fórmula é igual a P e a segunda é $ \sim Q \vee P $.
+ \item[(d)] $ P \wedge Q \wedge (\sim P \vee \sim Q) = \sim P \wedge \sim Q \wedge (P \vee Q) $ \newline
+$ \square $
+ \item[(e)] $ P \vee (P \implies (P \wedge Q)) = \sim P \vee \sim Q \vee (P \wedge Q) $. \newline
+$ \blacksquare $
+\end{itemize}
+
+10. Prove that $ (\sim Q \implies \sim P) $ is logical consequence of $(P \implies Q) $ .
+
+$P \implies Q$
+
+$\sim P \vee Q$
+
+$Q \vee \sim P$
+
+$\sim Q \implies \sim P$
+
+14. Show that Q is a logical consequence of $ (P \implies Q) $ and P. This is related to the so-called modus ponens rule.
+
+Dado que P tem valor 1, o  valor de $ (P \implies Q) $ equivale ao valor de Q. Desta forma P e $ (P \implies Q) $ equivale a Q.
