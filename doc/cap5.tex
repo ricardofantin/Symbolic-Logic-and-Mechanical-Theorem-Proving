@@ -50,33 +50,36 @@ $ W = P(x_1, g(x_1), e(g(x_1)), h(x_1, e(g(x))), h(x_1,e(g(x_1))) , k(x_1,e(g(x_
 7. Determine whether the following clauses have factors. If yes, give the factors.
 \begin{itemize}
  \item[(1)] $ P(x) \vee Q(y) \vee P(f(x)) $ \newline
-$ P(x) \vee Q(y) $
+$ \sigma = \{x \diagup f(x) \} \\
+(1)\sigma = P(x) \vee Q(y) $
  \item[(2)] $ P(x) \vee P(a) \vee Q(f(x)) \vee Q(f(a)) $ \newline
-$ P(x) \vee Q(f(x)) $
+$ \sigma = \{x \diagup a \} \\
+(2)\sigma = P(x) \vee Q(f(x)) $
  \item[(3)] $ P(x, y) \vee P(a, f(a)) $ \newline
-P(x, y)
+$ \sigma = \{ x \diagup a, y \diagup f(a) \} \\
+(3)\sigma = P(x, y) $
  \item[(4)] $ P(a) \vee P(b) \vee P(x) $ \newline
-P(x)
+$ \sigma = \{x \diagup a, x \diagup b \} \\
+(4)\sigma = P(x)$
  \item[(5)] $ P(x) \vee P(f(y)) \vee Q(x,y) $. \newline
 Não possui.
 \end{itemize}
-
 
 \underline{8.} Find all possible resolvents (if any) of the following pairs of clauses:
 \begin{itemize}
  \item[(1)] $ C = \sim P(x) \vee Q(x,b) $, $ D = P(a) \vee Q(a,b) $ \newline
 Q(a,b)
  \item[(2)] $ C = \sim P(x) \vee Q(x,x) $, $ D = \sim Q (a,f(a)) $ \newline
-
+$\sim P(x)$
  \item[(3)] $ C = \sim P(x,y,u) \vee \sim P(y,z,v) \vee \sim P(x,v,w) \vee P(u,z,w) $, $ D = P(g(x,y),x,y) $ \newline
-
+$ \blacksquare $
  \item[(4)] $ C = \sim P(v,z,v) \vee P(w,z,w) $, $ D = P(w,h(x,x),w) $. \newline
+$ \blacksquare $
 \end{itemize}
 
+9. Reconsider Example 2.13 in Section 2.6. This time show that $H_2CO_3$ can be made by resolution.
 
-9. Reconsider Example 2.13 in Section 2.6. This time show that H2CO3 can be made by resolution.
-
-Primeiro nega-se a consequência $H2CO3$ torna-se $ \sim H2CO3 $. Remove-se as consequências $ (MgO \wedge H_2) \implies (Mg \wedge H_2O) \equiv \sim MgO \vee \sim H_2 \vee (Mg \wedge H_2O)$, $ C \wedge O_2 \implies CO_2 \equiv \sim C \vee \sim O_2 \vee CO_2$ e $ CO_2 \wedge H_2O \implies H_2CO_3 \equiv \sim CO_2 \vee \sim H_2O \vee H_2CO_3$.
+Primeiro nega-se a consequência $H_2CO_3$ para obter $ \sim H_2CO_3 $. Remove-se as consequências $ (MgO \wedge H_2) \implies (Mg \wedge H_2O) \equiv \sim MgO \vee \sim H_2 \vee (Mg \wedge H_2O)$, $ C \wedge O_2 \implies CO_2 \equiv \sim C \vee \sim O_2 \vee CO_2$ e $ CO_2 \wedge H_2O \implies H_2CO_3 \equiv \sim CO_2 \vee \sim H_2O \vee H_2CO_3$.
 
 \begin{itemize}
  \item[(1)] $ \sim MgO \vee \sim H_2 \vee (Mg \wedge H_2O) $
@@ -99,7 +102,7 @@ Primeiro nega-se a consequência $H2CO3$ torna-se $ \sim H2CO3 $. Remove-se as c
 
 Primeiro deve-se remover o símbolo de $\implies$, $ P \implies Q \equiv \sim P \vee Q $.
 
-Para gerar a última clausula é necessário negar a consequência $ Q $ torna-se $ \sim Q $.
+Para gerar a última clausula é necessário negar a consequência $ Q $, obtendo-se $ \sim Q $.
 
 \begin{itemize}
  \item[(1)] P

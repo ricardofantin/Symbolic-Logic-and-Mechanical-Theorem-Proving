@@ -16,12 +16,12 @@ $ P(x) \vee P(f(x)) $
  \item[(1)] Find H0 and H1. \newline
 $ H_0 = \{ a, b \} $ \newline
 $ H_1 = \{ a, b, f(a), f(b), g(a, a), g(a, b), g(b, a), g(b, b) \} $
-%$ H_2 = \{ a, f(a), g(a, a), f(f(a)), f(g(a, a)), g(a, f(a)), g(f(a), a), g(f(a), f(a)) \} $ \newline
  \item[(2)] Find all the ground instances of S over H0. \newline
-$ S^1 = \{P(f(a),a,g(f(a),b))\} $ e $ S^2 = \{P(f(b),a,g(f(b),b))\} $.
+$ P(a), P(b), g(f(a)), g(f(b)) $
  \item[(3)] Find all the ground instances of S over H1. \newline
-Talvez esteja errado...\newline
-$ S^1 = \{P(f(a),a,g(f(a),b))\} $, $ S^2 = \{P(f(b),a,g(f(b),b))\} $, $ S^3 = \{P(f(f(a)),a,g(f(f(a)),b))\} $, $ S^4 = \{P(f(f(b)),a,g(f(f(b)),b))\} $, $ S^5 = \{P(f(g(a,a)),a,g(f(g(a,a)),b))\} $, $ S^6 = \{P(f(g(a,b)),a,g(f(g(a,b)),b))\} $, $ S^7 = \{P(f(g(b,a)),a,g(f(g(b,a)),b))\} $, $ S^8 = \{P(f(g(b,b)),a,g(f(g(b,b)),b))\} $
+$ P(a), P(b), P(f(a)), P(f(b)), P(g(a,a)), P(g(a,b)), P(g(b,a)), P(g(b,b)),\\
+g(f(a),b), g(f(b),b), g(f(f(a)),b), g(f(f(b)),b), g(f(g(a,a)),b),\\
+g(f(g(a,b)),b),g(f(g(b,a)),b), g(f(g(b,b)),b)$
 \end{itemize}
 
 8. Consider the following clause C and interpreation I:
@@ -133,7 +133,8 @@ S = \{P(a), Q(a,a)\}
 
 13. Consider $ S = \{P(x,a,g(x,b)), \sim P(f(y),z,g(f(a),b))\} $. Find an unsatisfiable set S' of ground instances of clauses in S.
 
-S' = \{\}
+$ S' = \{ P(f(y),a,g(f(a),b)), \sim P(f(y),a,g(f(a),b)) \} $
 
 \underline{14.} Let $ S = \{P(x),Q(x,f(x)) \vee \sim P(x), \sim Q(g(y),z)\} $. Find an unsatisfiable set S' of ground instances of clauses in S.
 
+$ S' = \{ P(x), Q(g(y),f(g(y)))\vee \sim P(x), \sim Q(g(y),f(g(y)))\} $
